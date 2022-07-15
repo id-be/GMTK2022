@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DieTexture.png-e0812cde3afcfbbb3258df372530a418.stex"
+path="res://.import/SkyTexture.jpg-761858a6b808e987e5c6c6bff6adff1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Materials/DieTexture.png"
-dest_files=[ "res://.import/DieTexture.png-e0812cde3afcfbbb3258df372530a418.stex" ]
+source_file="res://Assets/2D/Textures/SkyTexture.jpg"
+dest_files=[ "res://.import/SkyTexture.jpg-761858a6b808e987e5c6c6bff6adff1e.stex" ]
 
 [params]
 

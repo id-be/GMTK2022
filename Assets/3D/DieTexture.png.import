@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/_0001_AllSkyFree_Screen_08.jpg-bc2c175de5f67da3988164b2d8678182.stex"
+path="res://.import/DieTexture.png-5cfbaf819d2caadc6516e26c319d5f02.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/Textures/_0001_AllSkyFree_Screen_08.jpg"
-dest_files=[ "res://.import/_0001_AllSkyFree_Screen_08.jpg-bc2c175de5f67da3988164b2d8678182.stex" ]
+source_file="res://Assets/3D/DieTexture.png"
+dest_files=[ "res://.import/DieTexture.png-5cfbaf819d2caadc6516e26c319d5f02.stex" ]
 
 [params]
 
