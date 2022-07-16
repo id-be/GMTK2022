@@ -59,11 +59,13 @@ func shot_check():
 func shoot_dice():
 	for die in ammo_load.get_children():
 		die.transform.origin = gun_barrel.translation
+		die.linear_velocity = Vector3.ZERO
+		# Here is where we apply the force
 #		print($Crosshair.translation)
-#		var shot_dir = Vector3(1, 0,0)
-##		var shot_dir = Vector3($Crosshair.translation.z, $Crosshair.translation.y-10, 0)
+		var shot_dir = Vector3(5, 0,0)
+#		var shot_dir = Vector3($Crosshair.translation.z, $Crosshair.translation.y-10, 0)
 #
-#		die.get_shot(shot_dir)
+		die.get_shot(shot_dir)
 
 func _on_ShotTimer_timeout():
 	shooting = false

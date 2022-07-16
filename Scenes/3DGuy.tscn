@@ -12,7 +12,7 @@ radius = 0.5
 script = ExtResource( 2 )
 
 [node name="GunBarrel" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90464, 3.96077 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.06913, 5.77568 )
 
 [node name="Ace" parent="." instance=ExtResource( 1 )]
 
