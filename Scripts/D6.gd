@@ -3,7 +3,7 @@ extends RigidBody
 var just_shot = false
 var shot_impulse = Vector3(0,0,0)
 
-export var shot_speed = 1.0
+export var shot_speed = 3.0
 
 func _ready():
 	pass # Replace with function body.
