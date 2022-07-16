@@ -8,8 +8,13 @@ export var damp = 0.9999999
 
 var pips = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# Get all "faces" from dice
+	for face in get_tree().get_nodes_in_group('Pips'):
+		if self.is_a_parent_of(face):
+			 pips.append(face)
+	
+	
 	$RayCast.set_debug_shape_custom_color(Color(1, 0, 0, 1))
 	$RayCast.set_debug_shape_thickness(5)
 	angular_damp = damp
@@ -31,10 +36,6 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
-	if (sleeping_state_changed()):
-		
-	
-	
 	if (linear_velocity.length() == 0.1):
 		axis_lock_angular_x = true; axis_lock_angular_y = true; axis_lock_angular_z = true; 
 		sleeping = true
@@ -43,10 +44,19 @@ func _physics_process(delta: float) -> void:
 	if (sleeping):
 		$RayCast.set_debug_shape_custom_color(Color(0, 1, 0, 1))
 		print(self.name + ": " + str(rotation_degrees))
+		print("Current Face Is: " + str(check_face()))
 
-func check_face():
-	var rotate = fmod($RayCast.rotation.x, 25)
-	pass
+func check_face() -> int:
+	var highest = null
+	var best_dot = -1
+	
+	for face in pips:
+		var dot_prod = (face.global_transform.origin - global_transform.origin).dot(Vector3.UP)
+		
+		if dot_prod > best_dot:
+			best_dot = dot_prod
+			highest = face
+	return int(highest.name.replace("Point", ""))
 
 
 func uniform_random_rotation() -> Quat:
