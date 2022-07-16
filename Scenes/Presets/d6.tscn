@@ -46,3 +46,21 @@ material/1 = null
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, 50, 0 )
+
+[node name="Point1" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="Point2" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="Point3" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+
+[node name="Point4" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+
+[node name="Point5" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="Point6" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

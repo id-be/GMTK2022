@@ -6,6 +6,8 @@ export(DieType) var dieType = DieType.D6
 export var angular_vel = 20
 export var damp = 0.9999999
 
+var pips = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$RayCast.set_debug_shape_custom_color(Color(1, 0, 0, 1))
@@ -29,10 +31,14 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	if (sleeping_state_changed()):
+		
+	
 	
 	if (linear_velocity.length() == 0.1):
 		axis_lock_angular_x = true; axis_lock_angular_y = true; axis_lock_angular_z = true; 
 		sleeping = true
+		emit_signal("sleeping_state_changed")
 	
 	if (sleeping):
 		$RayCast.set_debug_shape_custom_color(Color(0, 1, 0, 1))
