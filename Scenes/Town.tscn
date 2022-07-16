@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Town.gd" type="Script" id=1]
 [ext_resource path="res://Assets/2D/Textures/SkyTexture.jpg" type="Texture" id=2]
 [ext_resource path="res://Assets/2D/Textures/Sand.jpg" type="Texture" id=3]
 [ext_resource path="res://Scenes/3DGuy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/BadHombre.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_texture = ExtResource( 3 )
@@ -23,7 +24,31 @@ panorama = ExtResource( 2 )
 background_mode = 2
 background_sky = SubResource( 4 )
 ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.1
 ambient_light_sky_contribution = 0.0
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float brightness = 1.0;
+uniform float contrast = 1.0;
+uniform float saturation = 1.0;
+
+void fragment() {
+    vec3 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
+
+    c.rgb = mix(vec3(0.0), c.rgb, brightness);
+    c.rgb = mix(vec3(0.5), c.rgb, contrast);
+    c.rgb = mix(vec3(dot(vec3(1.0), c.rgb) * 0.33333), c.rgb, saturation);
+
+    COLOR.rgb = c;
+	}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/brightness = 1.0
+shader_param/contrast = 1.0
+shader_param/saturation = 1.0
 
 [node name="Town" type="Spatial"]
 script = ExtResource( 1 )
@@ -32,9 +57,9 @@ script = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="Floor"]
+[node name="FloorBody" type="RigidBody" parent="Floor"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+[node name="FloorCollShape" type="CollisionShape" parent="Floor/FloorBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )
 
@@ -42,7 +67,19 @@ shape = SubResource( 2 )
 environment = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 15.404, 67.2692 )
+transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 15.404, 43.2951 )
 
 [node name="3DGuy" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e-07, -20.373, 0, 46.487 )
+transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e-07, -20.373, 0, 0 )
+
+[node name="BadHombre" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3.024, 0, 0, 0, -1.32183e-07, -3.024, 0, 3.024, -1.32183e-07, 18.759, 4.536, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shadow_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
