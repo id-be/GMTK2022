@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Presets/d6.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/RollCheck.gd" type="Script" id=2]
@@ -6,11 +6,15 @@
 [ext_resource path="res://Scenes/Presets/d8.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Presets/d10.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Presets/d4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Presets/d20.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Presets/d12.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="BoxShape" id=3]
 
 [node name="RollScene" type="Spatial"]
 script = ExtResource( 2 )
@@ -35,18 +39,58 @@ near = 0.02
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.65043, 1.38973 )
 mass = 4.82
 script = ExtResource( 3 )
+angular_vel = 40
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+visible = true
+margin_right = 1024.0
+margin_bottom = 111.0
 
 [node name="d10" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2968, 5.59971, -1.91839 )
-mass = 4.82
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0531249, 10.3988, 5.58323 )
 script = ExtResource( 3 )
+dieType = 10
+angular_vel = 40
+
+[node name="d12" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.1916, -2.52733 )
+script = ExtResource( 3 )
+dieType = 12
+angular_vel = 40
+
+[node name="d20" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0887, 9.80922, 2.89394 )
+script = ExtResource( 3 )
+dieType = 20
+angular_vel = 40
 
 [node name="d4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.90184, 7.21362, 2.12292 )
-mass = 4.82
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55346, 10.9326, 1.43904 )
 script = ExtResource( 3 )
+dieType = 4
+angular_vel = 40
 
 [node name="d8" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61086, 8.46483, 0 )
-mass = 4.82
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.18314, 13.15, 0 )
 script = ExtResource( 3 )
+dieType = 8
+angular_vel = 40
+
+[node name="Bounds" type="RigidBody" parent="."]
+mode = 1
+
+[node name="CollisionShape2" type="CollisionShape" parent="Bounds"]
+transform = Transform( 15, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, -13 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Bounds"]
+transform = Transform( -6.55671e-07, 0, 1, 0, 20, 0, -15, 0, -4.37114e-08, 13, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Bounds"]
+transform = Transform( -6.55671e-07, 0, 1, 0, 20, 0, -15, 0, -4.37114e-08, -13, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bounds"]
+transform = Transform( 15, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 13 )
+shape = SubResource( 3 )
