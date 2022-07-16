@@ -9,6 +9,7 @@ export var aimspeed = 10.0
 onready var gun_barrel = $GunBarrel
 onready var ammo_load = $AmmoLoad
 onready var crosshair_dist = $Crosshair.translation
+onready var animator = $Ace/AnimationTree
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -67,7 +68,10 @@ func shoot_dice():
 		#var shot_dir = Vector3($Crosshair/CrossArea.translation.z - gun_barrel.translation.z, $Crosshair/CrossArea.translation.y - gun_barrel.translation.y, 0)
 		var shot_dir = Vector3($Crosshair/CrossArea.global_transform.origin.x - gun_barrel.global_transform.origin.x, $Crosshair/CrossArea.global_transform.origin.y - gun_barrel.global_transform.origin.y, 0)
 		die.get_shot(shot_dir)
+		animator.set("parameters/conditions/isShooting", true)
+		#animator.set("parameters/conditions/isShooting", false)
 		#print(die.global_transform.origin)
 
 func _on_ShotTimer_timeout():
 	shooting = false
+	animator.set("parameters/conditions/isShooting", false)
