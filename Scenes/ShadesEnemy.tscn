@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Dump/Enemies/Shades/Shades.glb" type="PackedScene" id=1]
+
+[node name="Shades" instance=ExtResource( 1 )]
