@@ -61,6 +61,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="FloorBody" type="RigidBody" parent="Floor"]
+mode = 1
 
 [node name="FloorCollShape" type="CollisionShape" parent="Floor/FloorBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
@@ -71,6 +72,8 @@ environment = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 15.404, 43.2951 )
+near = 0.01
+far = 8192.0
 
 [node name="3DGuy" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e-07, -20.373, 0, 0 )

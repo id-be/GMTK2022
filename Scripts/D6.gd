@@ -11,7 +11,8 @@ func _ready():
 func _physics_process(delta):
 	if just_shot:
 		apply_central_impulse(shot_impulse)#base this off of the current cursor position on the time of the click.
-
+		just_shot = false
+		
 func get_shot(aim):
 	shot_impulse = aim * shot_speed
 	just_shot = true
