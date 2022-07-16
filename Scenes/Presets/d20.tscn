@@ -21,6 +21,7 @@ surfaces/0 = {
 }
 
 [node name="d20" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0 )
@@ -33,3 +34,63 @@ material/0 = null
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, 50, 0 )
+
+[node name="Point1" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="Point2" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61283, 0.693149, -0.374147 )
+
+[node name="Point3" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345, -0.345, 0.85 )
+
+[node name="Point4" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345, 0.345, -0.85 )
+
+[node name="Point5" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581614, -0.3, -0.75 )
+
+[node name="Point6" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916145, 0.342084, 0.116535 )
+
+[node name="Point7" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613, -0.693, 0.374 )
+
+[node name="Point8" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.693, 0.693 )
+
+[node name="Point9" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.931673, -0.306749, -0.15414 )
+
+[node name="Point10" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584223, 0.332465, 0.713647 )
+
+[node name="Point11" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.582, -0.3, -0.75 )
+
+[node name="Point12" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.916517, 0.323755, 0.106529 )
+
+[node name="Point13" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.693, -0.693 )
+
+[node name="Point14" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613, 0.693, -0.374 )
+
+[node name="Point15" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.926478, -0.307, -0.14704 )
+
+[node name="Point16" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.584, 0.332, 0.714 )
+
+[node name="Point17" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345, -0.345, 0.85 )
+
+[node name="Point18" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345, 0.345, -0.85 )
+
+[node name="Point19" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613, -0.693, 0.374 )
+
+[node name="Point20" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

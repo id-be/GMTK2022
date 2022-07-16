@@ -33,3 +33,27 @@ material/0 = null
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0, 50, 0 )
+
+[node name="Point1" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="Point2" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84, 0, -0.436 )
+
+[node name="Point3" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839846, -0.359403, 0.563713 )
+
+[node name="Point4" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.359, -0.927427 )
+
+[node name="Point5" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.073 )
+
+[node name="Point6" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.886347, 0, -0.54817 )
+
+[node name="Point7" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78956, -0.359, 0.409445 )
+
+[node name="Point8" type="Position3D" parent="." groups=["Pips"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
