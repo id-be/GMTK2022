@@ -42,3 +42,7 @@ mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = null
 material/1 = null
+
+[node name="RayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 50, 0 )
