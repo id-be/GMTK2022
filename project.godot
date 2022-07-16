@@ -24,6 +24,10 @@ window/size/borderless=true
 window/size/fullscreen=true
 window/stretch/aspect="keep"
 
+[gui]
+
+theme/custom_font="res://Resources/Fonts/Rancho.tres"
+
 [input]
 
 DEBUG_QUIT={

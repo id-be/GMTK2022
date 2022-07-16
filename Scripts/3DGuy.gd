@@ -47,7 +47,6 @@ func _input(event):
 	if event.is_action_pressed("SHOOT"):
 		shooting = true
 		shot_check()
-		
 
 func randomize_crosshair():
 	pass
