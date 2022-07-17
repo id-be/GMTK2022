@@ -1,5 +1,57 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Dump/Enemies/Smirk/Smirk.glb" type="PackedScene" id=1]
 
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Grin_Die"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Grin_Hurt"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Grin_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Grin_Shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+advance_condition = "isShooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+advance_condition = "isDead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+advance_condition = "isHurting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=10]
+states/Grin_Die/node = SubResource( 1 )
+states/Grin_Die/position = Vector2( 233, 315 )
+states/Grin_Hurt/node = SubResource( 2 )
+states/Grin_Hurt/position = Vector2( 100, 203.5 )
+states/Grin_Idle/node = SubResource( 3 )
+states/Grin_Idle/position = Vector2( 220.5, 73.5 )
+states/Grin_Shoot/node = SubResource( 4 )
+states/Grin_Shoot/position = Vector2( 403, 181.5 )
+transitions = [ "Grin_Idle", "Grin_Shoot", SubResource( 5 ), "Grin_Shoot", "Grin_Idle", SubResource( 6 ), "Grin_Idle", "Grin_Die", SubResource( 7 ), "Grin_Idle", "Grin_Hurt", SubResource( 8 ), "Grin_Hurt", "Grin_Idle", SubResource( 9 ) ]
+start_node = "Grin_Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+
 [node name="Smirk" instance=ExtResource( 1 )]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 11 )
+parameters/conditions/isDead = false
+parameters/conditions/isHurting = false
+parameters/conditions/isShooting = false
