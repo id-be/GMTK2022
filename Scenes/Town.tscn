@@ -78,11 +78,11 @@ transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0
 near = 0.01
 far = 8192.0
 
-[node name="3DGuy" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e-07, -20.373, 0, 0 )
-
 [node name="BadHombre" parent="." instance=ExtResource( 5 )]
 transform = Transform( 3.024, 0, 0, 0, -1.32183e-07, -3.024, 0, 3.024, -1.32183e-07, 18.759, 4.536, 0 )
+
+[node name="3DGuy" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e-07, -20.373, 0, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -146,5 +146,6 @@ pause_mode = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -229.224, 0 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
