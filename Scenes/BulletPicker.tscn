@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/BulletPicker.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/BulletPicker.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Presets/d12.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Presets/d10.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Presets/d20.tscn" type="PackedScene" id=4]
