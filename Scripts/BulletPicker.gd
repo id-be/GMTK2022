@@ -25,8 +25,11 @@ var space_state = null
 
 var mouse_pos = null
 
+var select_count = 0 #Count of selected dice
+
 onready var all_dice = $DicePool
 
+var selected_dice = ["", "", ""]
 
 
 func _ready():
@@ -38,7 +41,9 @@ func _ready():
 
 	pools = [
 	[dice[0], dice[3], dice[1]] , 
-	[dice[0], dice[3], dice[4]]
+	[dice[0], dice[3], dice[4]],
+	[dice[7], dice[10], dice[12]],
+	[dice[0], dice[11], dice[13]],
 	]
 
 	total_pools = pools.size()
@@ -48,9 +53,11 @@ func _ready():
 	cur_pool[0].global_transform.origin = $DiePos1.global_transform.origin
 	cur_pool[1].global_transform.origin = $DiePos2.global_transform.origin
 	cur_pool[2].global_transform.origin = $DiePos3.global_transform.origin
+	
+	select_count = 0
 
-func _input(event):
-	if Input.is_action_just_pressed("LeftClick"):
+func _process(delta):
+	if Input.is_action_just_released("LeftClick"):
 		mouse_pos = get_viewport().get_mouse_position()
 		space_state = get_world().direct_space_state
 		ray_origin = cur_cam.project_ray_origin(mouse_pos)
@@ -62,6 +69,30 @@ func _input(event):
 			if die_away != null:
 				if die_away != -1:
 					put_away(die_away)
+					#print(die_away)
+					selected_dice[select_count] = get_dice_type(dice[die_away].get_name())
+					select_count = select_count + 1
+					if select_count >= 3:
+						print(selected_dice)
+						Globals.my_bullets = selected_dice
+						get_tree().change_scene("res://Scenes/Town.tscn")
+			
+
+func get_dice_type(dice_name):
+	var first_check = dice_name[dice_name.length()-3]
+	var dice_type = null
+	if first_check == '0':
+		if dice_name[dice_name.length()-4] == '1':
+			dice_type = "d10"
+		else:
+			dice_type = "d20"
+	elif first_check == '2':
+		dice_type = "d12"
+	else:
+		dice_type = "d" + first_check
+	#print(dice_type)
+	return dice_type
+
 
 func put_away(my_die):
 	dice[my_die].global_transform.origin = dice_og_pos[my_die]

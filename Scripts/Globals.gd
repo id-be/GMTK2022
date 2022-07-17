@@ -2,6 +2,8 @@ extends Node
 
 var my_enum
 
+var my_bullets
+
 func _ready():
 	pass
 
