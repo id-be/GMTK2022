@@ -15,8 +15,8 @@ func _ready():
 			 pips.append(face)
 	
 	
-	$RayCast.set_debug_shape_custom_color(Color(1, 0, 0, 1))
-	$RayCast.set_debug_shape_thickness(5)
+	#$RayCast.set_debug_shape_custom_color(Color(1, 0, 0, 1))
+	#$RayCast.set_debug_shape_thickness(5)
 	angular_damp = damp
 	
 	var bas = Basis(uniform_random_rotation())
@@ -41,10 +41,10 @@ func _physics_process(delta: float) -> void:
 		sleeping = true
 		emit_signal("sleeping_state_changed")
 	
-	if (sleeping):
-		$RayCast.set_debug_shape_custom_color(Color(0, 1, 0, 1))
-		print(self.name + ": " + str(rotation_degrees))
-		print("Current Face Is: " + str(check_face()))
+	#if (sleeping):
+		#$RayCast.set_debug_shape_custom_color(Color(0, 1, 0, 1))
+		#print(self.name + ": " + str(rotation_degrees))
+		#print("Current Face Is: " + str(check_face()))
 
 func check_face() -> int:
 	var highest = null

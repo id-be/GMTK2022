@@ -21,7 +21,6 @@ surfaces/0 = {
 }
 
 [node name="d20" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0 )
@@ -32,6 +31,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="RayCast" type="RayCast" parent="."]
+visible = false
 enabled = true
 cast_to = Vector3( 0, 50, 0 )
 

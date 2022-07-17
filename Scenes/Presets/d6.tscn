@@ -44,6 +44,7 @@ material/0 = null
 material/1 = null
 
 [node name="RayCast" type="RayCast" parent="."]
+visible = false
 enabled = true
 cast_to = Vector3( 0, 50, 0 )
 

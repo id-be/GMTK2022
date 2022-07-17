@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/BulletPicker.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Presets/d12.tscn" type="PackedScene" id=2]
@@ -7,8 +7,13 @@
 [ext_resource path="res://Scenes/Presets/d6.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Presets/d4.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Presets/d8.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Dump/Environment/DesertFloor.png" type="Texture" id=8]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 8 )
 
 [sub_resource type="PlaneMesh" id=1]
+material = SubResource( 3 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
