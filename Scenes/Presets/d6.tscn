@@ -32,7 +32,7 @@ surfaces/1 = {
 "vertex_count": 420
 }
 
-[node name="Die" type="RigidBody"]
+[node name="d6" type="RigidBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )

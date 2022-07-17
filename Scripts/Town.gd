@@ -1,14 +1,17 @@
 extends Spatial
 
+export var health = 100
+export var damage = 100
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var hlth = $UI/Health
+onready var dam = $UI/Damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+
+	hlth.text = hlth.text + " " + str(health)
+	dam.text = dam.text + " " + str(damage)
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("QUIT"):
@@ -16,3 +19,4 @@ func _unhandled_input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+

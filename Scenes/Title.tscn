@@ -21,27 +21,27 @@ margin_bottom = 452.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 margin_right = 128.0
-margin_bottom = 20.0
+margin_bottom = 27.0
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
+margin_top = 31.0
 margin_right = 128.0
-margin_bottom = 44.0
+margin_bottom = 58.0
 text = "Options (HAHA JK)"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
+margin_top = 62.0
 margin_right = 128.0
-margin_bottom = 68.0
+margin_bottom = 89.0
 text = "Quit"
 
 [node name="Title" type="Label" parent="."]
-margin_left = -32.0
+margin_left = -96.0
 margin_top = 120.0
-margin_right = 34.0
-margin_bottom = 134.0
-text = "OUR TITLE"
+margin_right = 101.0
+margin_bottom = 141.0
+text = "PLACEHOLDER TITLE: DUST DEVILS"
 align = 1
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
