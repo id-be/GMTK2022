@@ -5,12 +5,13 @@ export var i_damage = 100
 
 onready var hlth = $UI/Health
 onready var dam = $UI/Damage
+onready var guy = $"3DGuy"
 
 var rollscn
 var bulletpicker
 
 func _ready():
-	pass
+	guy.set_physics_process(false)
 	hlth.text = hlth.text + " " + str(i_health)
 	dam.text = dam.text + " " + str(i_damage)
 

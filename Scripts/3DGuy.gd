@@ -72,6 +72,13 @@ func load_bullets(bullets):
 		$AmmoPool.add_child(my_boy)
 		my_boy.set_owner($AmmoLoad)
 
+func toggle_crosshair(state):
+	match state:
+		false:
+			pass
+		true:
+			pass
+
 func shot_check():
 	if $Crosshair/CrossArea.get_overlapping_bodies().empty() != true:
 		shoot_dice()
