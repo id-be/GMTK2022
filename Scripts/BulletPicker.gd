@@ -42,7 +42,7 @@ func _ready():
 	]
 
 	total_pools = pools.size()
-	var my_pool = rando.randi_range(0, total_pools-1)
+	var my_pool = rando.randi_range(0, total_pools - 1)
 
 	cur_pool = pools[my_pool]
 	cur_pool[0].global_transform.origin = $DiePos1.global_transform.origin
