@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Dump/Enemies/Shades/Shades.glb" type="PackedScene" id=1]
 
@@ -9,6 +9,9 @@ animation = "Shades_Die"
 animation = "Shades_Hurt"
 
 [sub_resource type="AnimationNodeAnimation" id=3]
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Shades_Reload"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Shades_Shoot"
@@ -30,6 +33,13 @@ advance_condition = "isHurt"
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "isReloading"
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/Shades_Die/node = SubResource( 1 )
 states/Shades_Die/position = Vector2( 176, 219.5 )
@@ -37,9 +47,11 @@ states/Shades_Hurt/node = SubResource( 2 )
 states/Shades_Hurt/position = Vector2( 5, 131 )
 states/Shades_Idle/node = SubResource( 3 )
 states/Shades_Idle/position = Vector2( 190.5, 40.5 )
+states/Shades_Reload/node = SubResource( 12 )
+states/Shades_Reload/position = Vector2( -102.5, 34 )
 states/Shades_Shoot/node = SubResource( 4 )
 states/Shades_Shoot/position = Vector2( 368.5, 138.5 )
-transitions = [ "Shades_Idle", "Shades_Shoot", SubResource( 5 ), "Shades_Shoot", "Shades_Idle", SubResource( 6 ), "Shades_Idle", "Shades_Die", SubResource( 7 ), "Shades_Idle", "Shades_Hurt", SubResource( 8 ), "Shades_Hurt", "Shades_Idle", SubResource( 9 ) ]
+transitions = [ "Shades_Idle", "Shades_Shoot", SubResource( 5 ), "Shades_Shoot", "Shades_Idle", SubResource( 6 ), "Shades_Idle", "Shades_Die", SubResource( 7 ), "Shades_Idle", "Shades_Hurt", SubResource( 8 ), "Shades_Hurt", "Shades_Idle", SubResource( 9 ), "Shades_Reload", "Shades_Idle", SubResource( 13 ), "Shades_Idle", "Shades_Reload", SubResource( 14 ) ]
 start_node = "Shades_Idle"
 graph_offset = Vector2( -416, -12 )
 
@@ -54,4 +66,5 @@ active = true
 parameters/playback = SubResource( 11 )
 parameters/conditions/isDead = false
 parameters/conditions/isHurt = false
+parameters/conditions/isReloading = false
 parameters/conditions/isShooting = false
