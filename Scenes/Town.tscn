@@ -73,7 +73,7 @@ margin_bottom = 54.0
 text = "Damage:"
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 15.404, 43.2951 )
+transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 25.626, 50.751 )
 near = 0.01
 far = 8192.0
 
