@@ -56,8 +56,8 @@ func _ready():
 	
 	select_count = 0
 
-func _input(event):
-	if Input.is_action_just_pressed("LeftClick"):
+func _process(delta):
+	if Input.is_action_just_released("LeftClick"):
 		mouse_pos = get_viewport().get_mouse_position()
 		space_state = get_world().direct_space_state
 		ray_origin = cur_cam.project_ray_origin(mouse_pos)
@@ -76,6 +76,7 @@ func _input(event):
 						print(selected_dice)
 						Globals.my_bullets = selected_dice
 						get_tree().change_scene("res://Scenes/Town.tscn")
+			
 
 func get_dice_type(dice_name):
 	var first_check = dice_name[dice_name.length()-3]
