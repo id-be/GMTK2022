@@ -1,22 +1,24 @@
 extends Spatial
 
-export var health = 100
-export var damage = 100
+export var i_health = 100
+export var i_damage = 100
 
 onready var hlth = $UI/Health
 onready var dam = $UI/Damage
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+	hlth.text = hlth.text + " " + str(i_health)
+	dam.text = dam.text + " " + str(i_damage)
 
-	hlth.text = hlth.text + " " + str(health)
-	dam.text = dam.text + " " + str(damage)
+var dialogue = load("res://dialogue/dialogue_player/DialoguePlayer.tscn").instance()
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("QUIT"):
 		get_tree().change_scene("res://Scenes/Title.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
+func health_update(dmg):
+	pass
+
+func damage_update(dmg):
+	pass

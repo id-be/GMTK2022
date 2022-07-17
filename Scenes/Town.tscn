@@ -9,26 +9,6 @@
 [ext_resource path="res://Dump/Environment/DesertFloor.png" type="Texture" id=7]
 [ext_resource path="res://Dump/Environment/CactusOrb.glb" type="PackedScene" id=8]
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 7 )
-
-[sub_resource type="PlaneMesh" id=1]
-material = SubResource( 5 )
-size = Vector2( 250, 110 )
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 45, 1, 45 )
-
-[sub_resource type="PanoramaSky" id=4]
-panorama = ExtResource( 2 )
-
-[sub_resource type="Environment" id=3]
-background_mode = 2
-background_sky = SubResource( 4 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.1
-ambient_light_sky_contribution = 0.0
-
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 
@@ -52,6 +32,26 @@ shader_param/brightness = 1.0
 shader_param/contrast = 1.0
 shader_param/saturation = 1.0
 
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="PlaneMesh" id=1]
+material = SubResource( 5 )
+size = Vector2( 250, 110 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 45, 1, 45 )
+
+[sub_resource type="PanoramaSky" id=4]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 4 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.1
+ambient_light_sky_contribution = 0.0
+
 [node name="Town" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -60,31 +60,16 @@ margin_right = 91.0
 margin_bottom = 40.0
 
 [node name="Health" type="RichTextLabel" parent="UI"]
-margin_right = 111.0
-margin_bottom = 40.0
+margin_right = 120.0
+margin_bottom = 50.0
 text = "Health:"
 
 [node name="Damage" type="RichTextLabel" parent="UI"]
 margin_left = 1.0
-margin_top = 19.0
+margin_top = 35.0
 margin_right = 120.0
-margin_bottom = 59.0
+margin_bottom = 84.0
 text = "Damage:"
-
-[node name="Floor" type="MeshInstance" parent="."]
-transform = Transform( 2.90829, 0, 0, 0, 1.71084, 0, 0, 0, 4.94186, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="FloorBody" type="RigidBody" parent="Floor"]
-mode = 1
-
-[node name="FloorCollShape" type="CollisionShape" parent="Floor/FloorBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
-shape = SubResource( 2 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.963359, 0.268214, 0, -0.268214, 0.963359, 0, 15.404, 43.2951 )
@@ -97,30 +82,50 @@ transform = Transform( -1.32183e-07, 0, 3.024, 0, 3.024, 0, -3.024, 0, -1.32183e
 [node name="BadHombre" parent="." instance=ExtResource( 5 )]
 transform = Transform( 3.024, 0, 0, 0, -1.32183e-07, -3.024, 0, 3.024, -1.32183e-07, 18.759, 4.536, 0 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shadow_enabled = true
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Building2" parent="." instance=ExtResource( 3 )]
+[node name="SetPieces" type="Spatial" parent="."]
+
+[node name="Building2" parent="SetPieces" instance=ExtResource( 3 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -103.487, 4.72328, -129.824 )
 
-[node name="Building3" parent="." instance=ExtResource( 3 )]
+[node name="Building3" parent="SetPieces" instance=ExtResource( 3 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 170.513, 4.72328, -129.824 )
 
-[node name="Building1" parent="." instance=ExtResource( 6 )]
+[node name="Building1" parent="SetPieces" instance=ExtResource( 6 )]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 65, 5, -127 )
 
-[node name="CactusOrb" parent="." instance=ExtResource( 8 )]
+[node name="CactusOrb" parent="SetPieces" instance=ExtResource( 8 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 11, 3, -186 )
 
-[node name="CactusOrb2" parent="." instance=ExtResource( 8 )]
+[node name="CactusOrb2" parent="SetPieces" instance=ExtResource( 8 )]
 transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 56, 3, 84 )
 
-[node name="CactusOrb3" parent="." instance=ExtResource( 8 )]
+[node name="CactusOrb3" parent="SetPieces" instance=ExtResource( 8 )]
 transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, -153, 3, -94 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance" parent="Environment"]
+transform = Transform( 2.90829, 0, 0, 0, 1.71084, 0, 0, 0, 4.94186, 0, 0, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="FloorBody" type="RigidBody" parent="Environment/Floor"]
+mode = 1
+
+[node name="FloorCollShape" type="CollisionShape" parent="Environment/Floor/FloorBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+shape = SubResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource( 3 )

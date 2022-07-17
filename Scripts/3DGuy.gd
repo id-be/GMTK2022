@@ -10,13 +10,9 @@ onready var gun_barrel = $GunBarrel
 onready var ammo_load = $AmmoLoad
 onready var crosshair_dist = $Crosshair.translation
 onready var animator = $Ace/AceAnimationTree
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	going_up = true
 	var aim_curve = Curve3D.new()

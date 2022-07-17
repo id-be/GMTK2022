@@ -6,7 +6,7 @@ var shot_impulse = Vector3(0,0,0)
 export var shot_speed = 3.0
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _physics_process(delta):
 	if just_shot:
@@ -19,8 +19,3 @@ func _physics_process(delta):
 func get_shot(aim):
 	shot_impulse = aim * shot_speed
 	just_shot = true
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
