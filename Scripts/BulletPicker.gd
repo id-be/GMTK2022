@@ -28,12 +28,13 @@ var mouse_pos = null
 var select_count = 0 #Count of selected dice
 
 onready var all_dice = $DicePool
+onready var cam = $Camera
 
 var selected_dice = ["", "", ""]
 
 
 func _ready():
-	cur_cam = get_viewport().get_camera()
+	
 	for die in dice:
 		dice_og_pos.append(die.global_transform.origin)
 
@@ -57,12 +58,13 @@ func _ready():
 	select_count = 0
 
 func _process(delta):
+	cur_cam = get_viewport().get_camera()
+	space_state = get_world().direct_space_state
+	mouse_pos = get_viewport().get_mouse_position()
+	ray_origin = cur_cam.project_ray_origin(mouse_pos)
+	ray_end = ray_origin + cur_cam.project_ray_normal(mouse_pos)*2000
+	var intersection = space_state.intersect_ray(ray_origin, ray_end)
 	if Input.is_action_just_released("LeftClick"):
-		mouse_pos = get_viewport().get_mouse_position()
-		space_state = get_world().direct_space_state
-		ray_origin = cur_cam.project_ray_origin(mouse_pos)
-		ray_end = ray_origin + cur_cam.project_ray_normal(mouse_pos)*2000
-		var intersection = space_state.intersect_ray(ray_origin, ray_end)
 		print(intersection)
 		if intersection.size() > 0:
 			var die_away = dice.find(intersection.collider)

@@ -6,11 +6,13 @@ var last_child = null
 var going_up = null
 var my_boy = null
 var my_pool = null
+var is_aiming = false
 export var aimspeed = 10.0
 
 onready var gun_barrel = $GunBarrel
 onready var ammo_load = $AmmoLoad
-onready var crosshair_dist = $Crosshair.translation
+onready var crosshair = $Crosshair
+onready var crosshair_dist = crosshair.translation
 onready var animator = $Ace/AceAnimationTree
 
 
@@ -25,7 +27,7 @@ func _ready():
 #	print(last_child)
 	
 func _physics_process(delta: float) -> void:
-	if !shooting:
+	if !shooting && is_aiming:
 		if $Crosshair.translation.y < last_child && going_up:
 			l += delta
 		elif $Crosshair.translation.y == last_child && going_up:
@@ -43,7 +45,7 @@ func _physics_process(delta: float) -> void:
 #		print(cross)
 
 func _input(event):
-	if event.is_action_pressed("SHOOT"):
+	if event.is_action_pressed("SHOOT") && is_aiming:
 		shooting = true
 		shot_check()
 
@@ -75,9 +77,9 @@ func load_bullets(bullets):
 func toggle_crosshair(state):
 	match state:
 		false:
-			pass
+			crosshair.hide
 		true:
-			pass
+			crosshair.show
 
 func shot_check():
 	if $Crosshair/CrossArea.get_overlapping_bodies().empty() != true:
