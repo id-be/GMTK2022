@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Draw_and_Holster.wav-1133d3126f8eaf7235c4c643c7b45ecf.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/RAW/Draw_and_Holster.wav"
+dest_files=[ "res://.import/Draw_and_Holster.wav-1133d3126f8eaf7235c4c643c7b45ecf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

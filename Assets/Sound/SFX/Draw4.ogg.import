@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Draw4.ogg-aea3d630ad5dd043b81132f41b3ebcd3.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Draw4.ogg"
+dest_files=[ "res://.import/Draw4.ogg-aea3d630ad5dd043b81132f41b3ebcd3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

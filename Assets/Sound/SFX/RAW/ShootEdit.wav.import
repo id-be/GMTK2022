@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShootEdit.wav-d3e17b7fa7f5a466157ed4c3668636f5.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/RAW/ShootEdit.wav"
+dest_files=[ "res://.import/ShootEdit.wav-d3e17b7fa7f5a466157ed4c3668636f5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

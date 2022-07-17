@@ -5,7 +5,8 @@ var my_enum
 var my_bullets
 
 func _ready():
-	pass
+	$Music.play()
+	$Music.seek(6)
 
 func _input(_event):
 	if OS.is_debug_build():

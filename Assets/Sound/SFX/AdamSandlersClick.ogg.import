@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AdamSandlersClick.ogg-6a5eb298864535927cafdf2d451bb750.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/AdamSandlersClick.ogg"
+dest_files=[ "res://.import/AdamSandlersClick.ogg-6a5eb298864535927cafdf2d451bb750.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

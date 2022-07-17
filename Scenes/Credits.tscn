@@ -21,8 +21,8 @@ anchor_right = 0.534
 anchor_bottom = 0.5
 margin_left = -240.0
 margin_top = -132.0
-margin_right = 208.0
-margin_bottom = 124.0
+margin_right = 293.184
+margin_bottom = 220.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -31,12 +31,16 @@ Spex130: 3D Modeling, Code, Animation
 Frostymm: 3D Animation
 Thoth-Bubble: Art, Code
 WastelandMadGod: Sound
+
+Music: \"Drifter\" by ©NADA Copyright Free Music
 "
 text = "Deanboy: Code
 Spex130: 3D Modeling, Code, Animation
 Frostymm: 3D Animation
 Thoth-Bubble: Art, Code
 WastelandMadGod: Sound
+
+Music: \"Drifter\" by ©NADA Copyright Free Music
 "
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
