@@ -60,15 +60,15 @@ margin_right = 91.0
 margin_bottom = 40.0
 
 [node name="Health" type="RichTextLabel" parent="UI"]
-margin_right = 120.0
+margin_left = 15.0
+margin_right = 135.0
 margin_bottom = 50.0
 text = "Health:"
 
 [node name="Damage" type="RichTextLabel" parent="UI"]
-margin_left = 1.0
-margin_top = 35.0
-margin_right = 120.0
-margin_bottom = 84.0
+margin_left = 2407.0
+margin_right = 2581.0
+margin_bottom = 54.0
 text = "Damage:"
 
 [node name="Camera" type="Camera" parent="."]

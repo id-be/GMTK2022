@@ -65,6 +65,8 @@ func _input(event):
 
 func put_away(my_die):
 	dice[my_die].global_transform.origin = dice_og_pos[my_die]
-
+	
+	Globals.my_enum = "whatever"
+	
 	var pool_index = "f"#just get the cur_pool, the objects 0 1 2 are the dice. then we can check 
 	#where those are in the dice array, and that gives us an int, which we can match up to the index of the dice_og_pos, then put it back there.

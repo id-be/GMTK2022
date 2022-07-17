@@ -1,10 +1,9 @@
 extends Node
 
-
+var my_enum
 
 func _ready():
 	pass
-
 
 func _input(_event):
 	if OS.is_debug_build():

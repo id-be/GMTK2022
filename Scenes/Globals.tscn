@@ -8,3 +8,5 @@ script = ExtResource( 1 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="DiceHandler" type="Node" parent="."]
