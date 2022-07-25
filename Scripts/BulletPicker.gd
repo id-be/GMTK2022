@@ -87,7 +87,7 @@ func get_dice_type(dice_name):
 	var dice_type = null
 	dice_name = dice_name.trim_suffix(dice_name[-2] + dice_name[-1])
 	dice_type = dice_name
-	print(dice_type)
+#	print(dice_type)
 	return dice_type
 
 func put_away(my_die):

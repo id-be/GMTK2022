@@ -37,6 +37,7 @@ func bullets_picked():
 	pick.set_process(false)
 	town_cam.current = true
 	guy.is_aiming = true
+	guy.toggle_crosshair(true)
 
 func swap_to_bullet_loader():
 	pick.cam.current = true

@@ -7,6 +7,10 @@ var going_up = null
 var my_boy = null
 var my_pool = null
 var is_aiming = false
+
+var rando
+var cur_blast
+var max_blasts
 export var aimspeed = 10.0
 
 onready var gun_barrel = $GunBarrel
@@ -18,7 +22,11 @@ onready var animator = $Ace/AceAnimationTree
 
 
 func _ready():
-	going_up = true
+	max_blasts = Globals.blasts.size() - 1
+	rando = RandomNumberGenerator.new()
+	rando.randomize()
+	
+	toggle_crosshair(false)
 	var aim_curve = Curve3D.new()
 	for child in $AimPathContainer.get_children():
 		aim_curve.add_point(child.translation)
@@ -75,11 +83,7 @@ func load_bullets(bullets):
 		my_boy.set_owner($AmmoLoad)
 
 func toggle_crosshair(state):
-	match state:
-		false:
-			crosshair.hide
-		true:
-			crosshair.show
+	crosshair.set_visible(state)
 
 func shot_check():
 	if $Crosshair/CrossArea.get_overlapping_bodies().empty() != true:
@@ -89,10 +93,12 @@ func shot_check():
 func shoot_dice():
 	if ammo_load.get_child_count() != 0:
 		for die in ammo_load.get_children():
+			cur_blast = rando.randi_range(0, max_blasts)
 			die.global_transform.origin = gun_barrel.global_transform.origin
 			die.linear_velocity = Vector3.ZERO
 			# Here is where we apply the force
 	#		print($Crosshair.translation)
+			#WE SHOULD: add something to randomize the orientation of the die when it is shot.
 			#var shot_dir = Vector3(5, 0,0)
 			#var shot_dir = Vector3($Crosshair/CrossArea.translation.z - gun_barrel.translation.z, $Crosshair/CrossArea.translation.y - gun_barrel.translation.y, 0)
 			var shot_dir = Vector3($Crosshair/CrossArea.global_transform.origin.x - \
@@ -100,6 +106,7 @@ func shoot_dice():
 			gun_barrel.global_transform.origin.y, 0)
 			die.get_shot(shot_dir)
 			animator.set("parameters/conditions/isShooting", true)
+			Globals.play_sfx(Globals.blasts[cur_blast])
 			#animator.set("parameters/conditions/isShooting", false)
 			#print(die.global_transform.origin)
 	else:
