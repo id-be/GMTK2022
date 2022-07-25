@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cock7.ogg-ae78f4e5e453f22dcfd410ccb79e56d4.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Cock7.ogg"
+dest_files=[ "res://.import/Cock7.ogg-ae78f4e5e453f22dcfd410ccb79e56d4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

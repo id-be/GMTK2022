@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gunshot10.ogg-68d4fd2037f71be36037542889c60106.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Gunshot10.ogg"
+dest_files=[ "res://.import/Gunshot10.ogg-68d4fd2037f71be36037542889c60106.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

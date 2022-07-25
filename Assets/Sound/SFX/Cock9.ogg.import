@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cock9.ogg-5388966d285416315f4a093d547006f7.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Cock9.ogg"
+dest_files=[ "res://.import/Cock9.ogg-5388966d285416315f4a093d547006f7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

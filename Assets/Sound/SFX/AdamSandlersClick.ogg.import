@@ -11,5 +11,5 @@ dest_files=[ "res://.import/AdamSandlersClick.ogg-6a5eb298864535927cafdf2d451bb7
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

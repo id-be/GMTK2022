@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cock3.ogg-4e44999ef54a9ea01c1105e40de3e817.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/SFX/Cock3.ogg"
+dest_files=[ "res://.import/Cock3.ogg-4e44999ef54a9ea01c1105e40de3e817.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

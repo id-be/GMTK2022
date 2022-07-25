@@ -32,11 +32,14 @@ onready var cam = $Camera
 
 var selected_dice = ["", "", ""]
 
+signal done_picking
 
 func _ready():
-	
 	for die in dice:
 		dice_og_pos.append(die.global_transform.origin)
+	
+	if get_parent().name != "root":
+		self.connect("done_picking", get_parent(), "bullets_picked")
 
 	rando.randomize()
 
@@ -54,7 +57,7 @@ func _ready():
 	cur_pool[0].global_transform.origin = $DiePos1.global_transform.origin
 	cur_pool[1].global_transform.origin = $DiePos2.global_transform.origin
 	cur_pool[2].global_transform.origin = $DiePos3.global_transform.origin
-	
+
 	select_count = 0
 
 func _process(delta):
@@ -65,7 +68,7 @@ func _process(delta):
 	ray_end = ray_origin + cur_cam.project_ray_normal(mouse_pos)*2000
 	var intersection = space_state.intersect_ray(ray_origin, ray_end)
 	if Input.is_action_just_released("LeftClick"):
-		print(intersection)
+#		print(intersection)
 		if intersection.size() > 0:
 			var die_away = dice.find(intersection.collider)
 			if die_away != null:
@@ -75,31 +78,22 @@ func _process(delta):
 					selected_dice[select_count] = get_dice_type(dice[die_away].get_name())
 					select_count = select_count + 1
 					if select_count >= 3:
-						print(selected_dice)
+#						print(selected_dice)
+						emit_signal("done_picking")
 						Globals.my_bullets = selected_dice
-						get_tree().change_scene("res://Scenes/Town.tscn")
-			
+
 
 func get_dice_type(dice_name):
-	var first_check = dice_name[dice_name.length()-3]
 	var dice_type = null
-	if first_check == '0':
-		if dice_name[dice_name.length()-4] == '1':
-			dice_type = "d10"
-		else:
-			dice_type = "d20"
-	elif first_check == '2':
-		dice_type = "d12"
-	else:
-		dice_type = "d" + first_check
-	#print(dice_type)
+	dice_name = dice_name.trim_suffix(dice_name[-2] + dice_name[-1])
+	dice_type = dice_name
+	print(dice_type)
 	return dice_type
-
 
 func put_away(my_die):
 	dice[my_die].global_transform.origin = dice_og_pos[my_die]
-	
+
 	Globals.my_enum = "whatever"
-	
+
 	var pool_index = "f"#just get the cur_pool, the objects 0 1 2 are the dice. then we can check 
 	#where those are in the dice array, and that gives us an int, which we can match up to the index of the dice_og_pos, then put it back there.
